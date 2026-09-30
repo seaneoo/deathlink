@@ -6,8 +6,6 @@ group = project.property("group").toString()
 
 version = project.property("version").toString()
 
-val modId = project.property("id").toString()
-
 repositories {}
 
 dependencies {
@@ -19,13 +17,15 @@ dependencies {
 }
 
 tasks.processResources {
+    val version = version
+    val id = project.property("id").toString()
     val minecraft = project.property("minecraft_version").toString()
     val loader = project.property("loader_version").toString()
     val fabric = project.property("fabric_api_version").toString()
 
     inputs.properties(
         "version" to version,
-        "id" to modId,
+        "id" to id,
         "minecraft" to minecraft,
         "loader" to loader,
         "fabric" to fabric,
@@ -34,7 +34,7 @@ tasks.processResources {
     filesMatching("fabric.mod.json") {
         expand(
             "version" to version,
-            "id" to modId,
+            "id" to id,
             "minecraft" to minecraft,
             "loader" to loader,
             "fabric" to fabric,
