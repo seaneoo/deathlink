@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "${id}",
+  "version": "${version}",
+  "name": "Death Link",
+  "license": "Unlicense",
+  "icon": "assets/${id}/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.seano.deathlink.DeathLink"
+    ]
+  },
+  "mixins": [
+    "deathlink.mixins.json"
+  ],
+  "depends": {
+    "java": ">=25",
+    "minecraft": "~${minecraft}",
+    "fabricloader": ">=${loader}",
+    "fabric-api": ">=${fabric}"
+  }
+}
